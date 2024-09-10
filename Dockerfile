@@ -20,12 +20,6 @@ RUN apt update \
 	&& rm -rf /var/lib/apt/lists/* \
  	&& mkdir -p /usr/local/tomcat/conf/Catalina/localhost /usr/local/tomcat/ssl
 
-ENV SQL_HOST=localhost
-ENV SQL_PORT=5432
-ENV SQL_BASE=hmdm
-ENV SQL_USER=hmdm
-ENV SQL_PASS=Ch@nGeMe
-
 ENV PROTOCOL=https
 
 # Comment it to use custom certificates
