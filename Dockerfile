@@ -26,10 +26,6 @@ ENV SQL_PASS=Ch@nGeMe
 
 ENV PROTOCOL=https
 
-# Set this parameter to your local IP address 
-# if your server is behind the NAT
-#ENV LOCAL_IP=172.31.91.82
-
 # Comment it to use custom certificates
 ENV HTTPS_LETSENCRYPT=true
 # Mount the custom certificate path if custom certificates must be used
