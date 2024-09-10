@@ -1,5 +1,14 @@
 FROM tomcat:9
 
+ENV VERSION=5.27.2
+ENV CLIENT_VERSION=5.28
+
+# Premium version has a different shared secret
+ENV HMDM_VARIANT=os
+ENV SHARED_SECRET=changeme-C3z9vi54
+
+ENV HMDM_URL=https://h-mdm.com/files/hmdm-${VERSION}-${HMDM_VARIANT}.war
+
 RUN apt update \
     && apt full-upgrade -y \
 	&& apt install -y aapt wget sed postgresql-client \
@@ -15,14 +24,6 @@ ENV FORCE_RECONFIGURE=
 ENV INSTALL_LANGUAGE=en
 
 #ENV ADMIN_EMAIL=
-
-# Different for open source and premium versions!
-ENV SHARED_SECRET=changeme-C3z9vi54
-
-ENV HMDM_VARIANT=os
-ENV DOWNLOAD_CREDENTIALS=
-ENV HMDM_URL=https://h-mdm.com/files/hmdm-5.27.2-$HMDM_VARIANT.war
-ENV CLIENT_VERSION=5.28
 
 ENV SQL_HOST=localhost
 ENV SQL_PORT=5432
