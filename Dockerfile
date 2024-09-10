@@ -1,6 +1,4 @@
-# syntax=docker/dockerfile:1
-
-FROM tomcat:9-jdk11-temurin-jammy
+FROM tomcat:9
 
 RUN apt-get update \
     && apt-get upgrade -y
