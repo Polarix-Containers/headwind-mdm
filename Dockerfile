@@ -9,21 +9,14 @@ ENV SHARED_SECRET=changeme-C3z9vi54
 
 ENV HMDM_URL=https://h-mdm.com/files/hmdm-${VERSION}-${HMDM_VARIANT}.war
 
+# Available values: en, ru (en by default)
+ENV INSTALL_LANGUAGE=en
+
 RUN apt update \
     && apt full-upgrade -y \
 	&& apt install -y aapt wget sed postgresql-client \
 	&& rm -rf /var/lib/apt/lists/* \
  	&& mkdir -p /usr/local/tomcat/conf/Catalina/localhost /usr/local/tomcat/ssl
-
-# Set to true to force updating the config files
-# If not set, they will be created only if there's no files
-#ENV FORCE_RECONFIGURE=true
-ENV FORCE_RECONFIGURE=
-
-# Available values: en, ru (en by default)
-ENV INSTALL_LANGUAGE=en
-
-#ENV ADMIN_EMAIL=
 
 ENV SQL_HOST=localhost
 ENV SQL_PORT=5432
@@ -32,7 +25,6 @@ ENV SQL_USER=hmdm
 ENV SQL_PASS=Ch@nGeMe
 
 ENV PROTOCOL=https
-#ENV BASE_DOMAIN=your-domain.com
 
 # Set this parameter to your local IP address 
 # if your server is behind the NAT
