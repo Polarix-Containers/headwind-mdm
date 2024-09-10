@@ -6,7 +6,7 @@ RUN apt update \
 	&& rm -rf /var/lib/apt/lists/* \
  	&& mkdir -p /usr/local/tomcat/conf/Catalina/localhost /usr/local/tomcat/ssl
 
-# Set to 1 to force updating the config files
+# Set to true to force updating the config files
 # If not set, they will be created only if there's no files
 #ENV FORCE_RECONFIGURE=true
 ENV FORCE_RECONFIGURE=
