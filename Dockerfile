@@ -3,9 +3,8 @@ FROM tomcat:9
 RUN apt update \
     && apt full-upgrade -y \
 	&& apt install -y aapt wget sed postgresql-client \
-	&& rm -rf /var/lib/apt/lists/*
-RUN mkdir -p /usr/local/tomcat/conf/Catalina/localhost
-RUN mkdir -p /usr/local/tomcat/ssl
+	&& rm -rf /var/lib/apt/lists/* \
+ 	&& mkdir -p /usr/local/tomcat/conf/Catalina/localhost /usr/local/tomcat/ssl
 
 # Set to 1 to force updating the config files
 # If not set, they will be created only if there's no files
