@@ -20,7 +20,7 @@ env:
 jobs:
 
   shellcheck:
-    name: Bash syntax checker
+    name: Shell syntax checker
     runs-on: ubuntu-24.04
     permissions:
       contents: read
