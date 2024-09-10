@@ -2,14 +2,14 @@ FROM tomcat:9
 
 LABEL maintainer="Thien Tran contact@tommytran.io"
 
-ENV VERSION=5.27.2
+ENV SERVER_VERSION=5.27.2
 ENV CLIENT_VERSION=5.28
 
 # Premium version has a different shared secret
 ENV HMDM_VARIANT=os
 ENV SHARED_SECRET=changeme-C3z9vi54
 
-ENV HMDM_URL=https://h-mdm.com/files/hmdm-${VERSION}-${HMDM_VARIANT}.war
+ENV HMDM_URL=https://h-mdm.com/files/hmdm-${SERVER_VERSION}-${HMDM_VARIANT}.war
 
 # Available values: en, ru (en by default)
 ENV INSTALL_LANGUAGE=en
