@@ -1,5 +1,7 @@
 FROM tomcat:9
 
+LABEL maintainer="Thien Tran contact@tommytran.io"
+
 ENV VERSION=5.27.2
 ENV CLIENT_VERSION=5.28
 
