@@ -5,6 +5,7 @@
 ### Features & usage
 - Rebases [official image](https://github.com/h-mdm/hmdm-docker) to the latest Tomcat 9 image, to be used as a drop-in replacement.
 - Fixes shellcheck warnings.
+- Adds `arm64` support.
 - ⚠️ This container is based on Ubuntu, does not include `hardened_malloc`, and may have a lot of vulnerabilities, particularly with the `aapt` package. In other words, while this container may improve security over the upstream container, it is not up to Polarix Containers' usual standard.
 
 ### Licensing
