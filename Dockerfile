@@ -21,9 +21,19 @@ ENV HTTPS_CERT=cert.pem
 ENV HTTPS_FULLCHAIN=fullchain.pem
 ENV HTTPS_PRIVKEY=privkey.pem
 
+COPY get-aapt2.sh .
+
 RUN apt update \
     && apt full-upgrade -y \
-	&& apt install -y aapt wget sed postgresql-client \
+	&& apt install -y gnupg libarchive-tools postgresql-client sed wget yq \
+ 	&& curl -sS -O 'https://dl.google.com/linux/linux_signing_key.pub' \
+  	&& gpg --import linux_signing_key.pub \
+	&& rm linux_signing_key.pub \
+	&& chmod u+x ./get-aapt2.sh \
+	&& ./get-aapt2.sh \
+	&& chmod +x aapt2 \
+	&& mv aapt2 /usr/bin/local \
+	&& apt purge -y gnupg libarchive-tools yq \
 	&& rm -rf /var/lib/apt/lists/* \
  	&& mkdir -p /usr/local/tomcat/conf/Catalina/localhost /usr/local/tomcat/ssl
 
