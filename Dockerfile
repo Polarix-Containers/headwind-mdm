@@ -22,13 +22,11 @@ ENV HTTPS_FULLCHAIN=fullchain.pem
 ENV HTTPS_PRIVKEY=privkey.pem
 
 COPY get-aapt2.sh .
+COPY .gnupg /root/.gnupg
 
 RUN apt update \
     && apt full-upgrade -y \
 	&& apt install -y gnupg libarchive-tools postgresql-client sed wget yq \
- 	&& curl -sS -O 'https://dl.google.com/linux/linux_signing_key.pub' \
-  	&& gpg --import linux_signing_key.pub \
-	&& rm linux_signing_key.pub \
 	&& chmod u+x ./get-aapt2.sh \
 	&& ./get-aapt2.sh \
 	&& chmod +x aapt2 \
